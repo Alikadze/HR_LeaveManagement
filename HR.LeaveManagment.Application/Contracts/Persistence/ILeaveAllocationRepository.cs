@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagment.Application.Persistence.Contracts
+namespace HR.LeaveManagment.Application.Contracts.Persistence
 {
     public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation>
     {

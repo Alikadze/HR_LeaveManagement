@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagment.domain", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagment.Application", "HR.LeaveManagment.Application\HR.LeaveManagment.Application.csproj", "{BD236705-2BDA-4D1B-A96B-99CC1688386B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagment.Infrastucture", "HR.LeaveManagment.Infrastucture\HR.LeaveManagment.Infrastucture.csproj", "{7F7653E6-7E38-4146-9B43-F331FE026891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagment.Persistence", "HR.LeaveManagment.Persistence\HR.LeaveManagment.Persistence.csproj", "{B5C9DBFE-A22C-4DDB-BD5D-504DDCAB3084}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{BD236705-2BDA-4D1B-A96B-99CC1688386B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD236705-2BDA-4D1B-A96B-99CC1688386B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD236705-2BDA-4D1B-A96B-99CC1688386B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7653E6-7E38-4146-9B43-F331FE026891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7653E6-7E38-4146-9B43-F331FE026891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7653E6-7E38-4146-9B43-F331FE026891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7653E6-7E38-4146-9B43-F331FE026891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C9DBFE-A22C-4DDB-BD5D-504DDCAB3084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C9DBFE-A22C-4DDB-BD5D-504DDCAB3084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C9DBFE-A22C-4DDB-BD5D-504DDCAB3084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C9DBFE-A22C-4DDB-BD5D-504DDCAB3084}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +56,8 @@ Global
 		{24612805-3B70-4093-8A2F-378E3B8182C5} = {C6C9E92A-5377-4684-996D-2AB6A2CCF23B}
 		{F88B0F45-3471-427F-A2D0-878DDBEBFB70} = {C1192A14-A241-47B5-BF01-8C22874729A8}
 		{BD236705-2BDA-4D1B-A96B-99CC1688386B} = {C1192A14-A241-47B5-BF01-8C22874729A8}
+		{7F7653E6-7E38-4146-9B43-F331FE026891} = {C179F960-766F-4517-99A2-F7E56020D122}
+		{B5C9DBFE-A22C-4DDB-BD5D-504DDCAB3084} = {C179F960-766F-4517-99A2-F7E56020D122}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {709A992D-FCE4-47FA-8522-B704628B48B7}
