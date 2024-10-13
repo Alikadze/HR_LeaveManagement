@@ -6,7 +6,8 @@ using System.Text;
 
 namespace HR.LeaveManagment.Application.Features.LeaveRequest.Requests.Queries
 {
-    internal class GetLeaveRequestListRequest : IRequest<List<LeaveRequestDto>>
+    public class GetLeaveRequestListRequest : IRequest<List<LeaveRequestListDto>>
     {
+        public bool IsLoggedInUser { get; set; }
     }
 }

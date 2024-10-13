@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HR.LeaveManagment.Application.Features.LeaveRequest.Requests.Queries
 {
-    internal class GetLeaveRequestListRequestDetail : IRequest<LeaveRequestDto>
+    public class GetLeaveRequestDetailRequest : IRequest<LeaveRequestDto>
     {
         public int Id { get; set; }
     }

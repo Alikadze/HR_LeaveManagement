@@ -6,11 +6,11 @@ using System.Text;
 
 namespace HR.LeaveManagment.Application.Features.LeaveRequest.Requests.Commands
 {
-    internal class UpdateLeaveRequestCommand : IRequest<Unit>
+    public class UpdateLeaveRequestCommand : IRequest<Unit>
     {
         public int Id { get; set; }
-        public UpdateLeaveRequestDto LeaveRequestDto { get; set; }
+        public UpdateLeaveRequestDto? LeaveRequestDto { get; set; }
 
-        public ChangeLeaveRequestApprovalDto ChangeLeaveRequestApprovalDto { get; set; }
+        public ChangeLeaveRequestApprovalDto? ChangeLeaveRequestApprovalDto { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Queries
 {
-    internal class GetLeaveRequestListRequestHandler : IRequestHandler<GetLeaveRequestListRequest, List<LeaveRequestDto>>
+    public class GetLeaveRequestListRequestHandler : IRequestHandler<GetLeaveRequestListRequest, List<LeaveRequestListDto>>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
@@ -22,10 +22,19 @@ namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Queries
             _mapper = mapper;
         }
 
-        public Task<List<LeaveRequestDto>> Handle(GetLeaveRequestListRequest request, CancellationToken cancellationToken)
+        public async Task<List<LeaveRequestListDto>> Handle(GetLeaveRequestListRequest request, CancellationToken cancellationToken)
         {
-            var leaveRequests = _leaveRequestRepository.GetAll();
-            return Task.FromResult(_mapper.Map<List<LeaveRequestDto>>(leaveRequests));
+            var leaveRequests = await _leaveRequestRepository.GetAll(); // Fetch data asynchronously
+
+            // Check if filtering for logged-in user is required
+            if (request.IsLoggedInUser)
+            {
+                // Add your logic to filter leave requests based on the logged-in user
+                // For example: leaveRequests = leaveRequests.Where(lr => lr.UserId == currentUser.Id).ToList();
+            }
+
+            // Map the fetched leave requests to List<LeaveRequestListDto>
+            return _mapper.Map<List<LeaveRequestListDto>>(leaveRequests);
         }
     }
 }

@@ -6,14 +6,14 @@ using HR.LeaveManagment.Application.Contracts.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace HR.LeaveManagment.Application.Features.LeaveAllocations.Handlers.Commands
 {
-    internal class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAllocationCommand, Unit>
+    public class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAllocationCommand, Unit>
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly IMapper _mapper;
@@ -31,7 +31,7 @@ namespace HR.LeaveManagment.Application.Features.LeaveAllocations.Handlers.Comma
             var validationResult = await validator.ValidateAsync(request.LeaveAllocationDto);
 
             if (!validationResult.IsValid)
-                throw new ValidationException(validationResult.ToString());
+                throw new Exception(validationResult.ToString());
 
             var leaveAllocation = await _leaveAllocationRepository.Get(request.LeaveAllocationDto.Id);
 

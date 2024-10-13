@@ -6,7 +6,7 @@ using HR.LeaveManagment.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,7 +16,7 @@ using HR.LeaveManagment.Application.Models;
 
 namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Commands
 {
-    internal class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveRequestCommand, BaseCommandResponse>
+    public class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveRequestCommand, BaseCommandResponse>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
@@ -61,7 +61,7 @@ namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Commands
                 await _emailSender.SendEmail(email);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 responce.Succeeded = false;
                 responce.Message = "Leave Request Added Successfully, but the email notification failed.";

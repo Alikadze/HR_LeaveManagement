@@ -1,4 +1,5 @@
-﻿using HR.LeaveManagment.domain;
+﻿using HR.LeaveManagment.Application.DTOs.LeaveRequest;
+using HR.LeaveManagment.domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
