@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagment.Application.Features.LeaveAllocations.Handlers.Commands
 {
-    internal class DeleteLeaveAllocationCommandHandler : IRequestHandler<DeleteLeaveAllocationCommand>
+    public class DeleteLeaveAllocationCommandHandler : IRequestHandler<DeleteLeaveAllocationCommand>
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly IMapper _mapper;

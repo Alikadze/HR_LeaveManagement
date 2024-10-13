@@ -1,6 +1,7 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace HR.LeaveManagment.Application.Exceptions
@@ -11,7 +12,7 @@ namespace HR.LeaveManagment.Application.Exceptions
 
         public ValidationException(ValidationResult validationResult)
         {
-            foreach (var error in validationResult.ErrorMessage)
+            foreach (var error in validationResult.Errors)
             {
                 Errors.Add(error.ToString());
             }

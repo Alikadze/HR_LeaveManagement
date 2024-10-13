@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagment.Persistence.Repositories
 {
-    internal class LeaveRequestRepository : GenericRepository<LeaveRequest> , ILeaveRequestRepository
+    public class LeaveRequestRepository : GenericRepository<LeaveRequest> , ILeaveRequestRepository
     {
         private readonly HrLeaveManagmentDbContext DbContext;
         public LeaveRequestRepository(HrLeaveManagmentDbContext dbContext) : base(dbContext) 

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagment.Application.Features.LeaveAllocations.Handlers.Queries
 {
-    internal class GetLeaveAllocationDetailRequestHandler : IRequestHandler<GetLeaveAllocationDetailRequest, LeaveAllocationDto>
+    public class GetLeaveAllocationDetailRequestHandler : IRequestHandler<GetLeaveAllocationDetailRequest, LeaveAllocationDto>
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly IMapper _mapper;

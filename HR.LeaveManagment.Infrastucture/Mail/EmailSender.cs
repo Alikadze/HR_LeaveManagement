@@ -1,5 +1,6 @@
 ﻿using HR.LeaveManagment.Application.Contracts.Infrastructure;
 using HR.LeaveManagment.Application.Models;
+using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -13,20 +14,21 @@ namespace HR.LeaveManagment.Infrastucture.Mail
     {
         private readonly EmailSettings _emailSettings;
 
-        public EmailSender(EmailSettings emailSettings)
+        public EmailSender(IOptions<EmailSettings> emailSettings)
         {
-            _emailSettings = emailSettings;
+            _emailSettings = emailSettings.Value;
         }
-        public async Task<bool> SendEmail(Email email)
+
+        new public async Task<bool> SendEmail(Email email)
         {
-            var client = new SendGridClient(_emailSettings.ApiKey);
+            var client = new SendGridClient(_emailSettings!.ApiKey);
             var to = new EmailAddress(email.To);
             var from = new EmailAddress
             {
                 Email = _emailSettings.FromAddress,
                 Name = _emailSettings.FromName
             };
-            
+
             var message = MailHelper.CreateSingleEmail(from, to, email.Subject, email.Body, email.Body);
             var response = await client.SendEmailAsync(message);
 

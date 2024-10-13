@@ -8,10 +8,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using HR.LeaveManagment.Application.DTOs.LeaveAllocation;
+using HR.LeaveManagment.domain;
 
 namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Queries
 {
-    internal class GetLeaveRequestListRequestDetailHandler : IRequestHandler<GetLeaveRequestListRequestDetail, LeaveRequestDto>
+    internal class GetLeaveRequestListRequestDetailHandler : IRequestHandler<GetLeaveRequestDetailRequest, LeaveRequestDto>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
@@ -22,10 +24,10 @@ namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Queries
             _mapper = mapper;
         }
 
-        public Task<LeaveRequestDto> Handle(GetLeaveRequestListRequestDetail request, CancellationToken cancellationToken)
+        public async Task<LeaveRequestDto> Handle(GetLeaveRequestDetailRequest request, CancellationToken cancellationToken)
         {
-            var leaveRequest = _leaveRequestRepository.GetLeaveRequestWithDetails(request.Id);
-            return Task.FromResult(_mapper.Map<LeaveRequestDto>(leaveRequest));
+            var leaveRequest = await _leaveRequestRepository.GetLeaveRequestWithDetails(request.Id);
+            return _mapper.Map<LeaveRequestDto>(leaveRequest);
         }
     }
 }

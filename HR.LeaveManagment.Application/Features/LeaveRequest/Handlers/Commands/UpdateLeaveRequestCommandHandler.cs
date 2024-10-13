@@ -5,7 +5,7 @@ using HR.LeaveManagment.Application.Contracts.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,26 +27,24 @@ namespace HR.LeaveManagment.Application.Features.LeaveRequest.Handlers.Commands
         {
             var leaveRequest = await _leaveRequestRepository.Get(request.Id);
 
-            var validator = new UpdateLeaveRequestDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.LeaveRequestDto);
-
-            if (!validationResult.IsValid)
-                throw new ValidationException(validationResult.ToString());
-
             if (request.LeaveRequestDto != null)
             {
-                _mapper.Map(request.LeaveRequestDto, leaveRequest);
+                var validator = new UpdateLeaveRequestDtoValidator();
+                var validationResult = await validator.ValidateAsync(request.LeaveRequestDto);
 
-                await _leaveRequestRepository.Update(leaveRequest); 
+                if (!validationResult.IsValid)
+                    throw new Exception(validationResult.ToString());
+
+                _mapper.Map(request.LeaveRequestDto, leaveRequest);
+                await _leaveRequestRepository.Update(leaveRequest);
             }
-            else if (request.ChangeLeaveRequestApprovalDto != null)
+
+            if (request.ChangeLeaveRequestApprovalDto != null)
             {
-                    await _leaveRequestRepository.ChangeApprovalStatus(leaveRequest, request.ChangeLeaveRequestApprovalDto.Approved);
+                await _leaveRequestRepository.ChangeApprovalStatus(leaveRequest, request.ChangeLeaveRequestApprovalDto.Approved);
             }
-            
 
             return Unit.Value;
-
         }
     }
 }

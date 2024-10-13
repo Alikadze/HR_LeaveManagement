@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HR.LeaveManagment.Application.DTOs.LeaveAllocation
 {
-    internal class LeaveAllocationDto : BaseDto
+    public class LeaveAllocationDto : BaseDto
     {
         public int NumberOfDays { get; set; }
         public int LeaveTypeId { get; set; }

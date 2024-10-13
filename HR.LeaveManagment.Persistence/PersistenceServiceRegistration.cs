@@ -15,7 +15,7 @@ namespace HR.LeaveManagment.Persistence
         {
             services.AddDbContext<HrLeaveManagmentDbContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("LeaveManagmentConnectionString")
+                    configuration.GetConnectionString("LeaveManagementConnectionString")
                 )
             );
 
@@ -26,8 +26,5 @@ namespace HR.LeaveManagment.Persistence
 
             return services;
         }
-
-         
-
     }
 }
