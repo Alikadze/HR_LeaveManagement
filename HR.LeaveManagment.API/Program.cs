@@ -96,6 +96,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(builder =>
+    builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
+
 // Add Authentication and Authorization middlewares in the correct order
 app.UseHttpsRedirection();
 app.UseAuthentication(); // Ensure authentication middleware is added before authorization
